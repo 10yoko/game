@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">games</string>
+    <string name="gomoku_button">五目並べ</string>
 </resources>
