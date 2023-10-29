@@ -14,8 +14,8 @@ public class GoStoneCoordinateData {
         for (int i = 0; i < coordinates.length; i++) {
             for (int j = 0; j < coordinates[i].length; j++) {
                 if (i == 0 && j == 0) continue;
-                if (j != 0) coordinates[i][j].X = coordinates[i][j - 1].X;
-                if (i != 0) coordinates[i][j].Y = coordinates[i - 1][j].Y;
+                if (j != 0) coordinates[i][j].X = coordinates[i][j - 1].X + SQUARE_WIDTH;
+                if (i != 0) coordinates[i][j].Y = coordinates[i - 1][j].Y + SQUARE_WIDTH;
                 if (j == 0) coordinates[i][j].X = coordinates[i - 1][j].X;
                 if (i == 0) coordinates[i][j].Y = coordinates[i][j - 1].Y;
             }
