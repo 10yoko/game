@@ -8,16 +8,20 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.games.gomokuData.GoStoneCoordinateData;
+import com.example.games.view.MyCustomView;
 
 public class GomokuActivity extends AppCompatActivity {
     private TextView coordinate;
     GoStoneCoordinateData goStoneCoordinateData;
+    MyCustomView customView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gomoku);
         coordinate = findViewById(R.id.coordinate);
         goStoneCoordinateData =new GoStoneCoordinateData();
+        customView = findViewById(R.id.customView);
+
         findViewById(R.id.home).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
         });

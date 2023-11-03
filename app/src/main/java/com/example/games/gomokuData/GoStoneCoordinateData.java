@@ -4,13 +4,13 @@ import android.util.Log;
 
 public class GoStoneCoordinateData {
     final String TAG = "GoStoneCoordinateData";
-    final int SQUARE_WIDTH = 58; //マスの正方形の幅
-    Coordinate[][] coordinates = new Coordinate[18][18];
+    final int SQUARE_WIDTH = 57; //マスの正方形の幅
+    public Coordinate[][] coordinates = new Coordinate[19][19];
 
     public GoStoneCoordinateData() {
         coodinateInit();
         coordinates[0][0].X = 20;
-        coordinates[0][0].Y = 588;
+        coordinates[0][0].Y = 530;
         for (int i = 0; i < coordinates.length; i++) {
             for (int j = 0; j < coordinates[i].length; j++) {
                 if (i == 0 && j == 0) continue;
