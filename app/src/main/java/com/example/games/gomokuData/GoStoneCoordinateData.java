@@ -8,7 +8,7 @@ public class GoStoneCoordinateData {
     public Coordinate[][] coordinates = new Coordinate[19][19];
 
     public GoStoneCoordinateData() {
-        coodinateInit();
+        coordinate();
         coordinates[0][0].X = 20;
         coordinates[0][0].Y = 530;
         for (int i = 0; i < coordinates.length; i++) {
@@ -27,7 +27,7 @@ public class GoStoneCoordinateData {
         public int Y;
     }
 
-    void coodinateInit() {
+    void coordinate() {
         for (int i = 0; i < coordinates.length; i++) {
             for (int j = 0; j < coordinates[i].length; j++) {
                 coordinates[i][j] = new Coordinate();
