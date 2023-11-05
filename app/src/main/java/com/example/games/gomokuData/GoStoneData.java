@@ -2,12 +2,12 @@ package com.example.games.gomokuData;
 
 import android.util.Log;
 
-public class GoStoneCoordinateData {
-    final String TAG = "GoStoneCoordinateData";
+public class GoStoneData {
+    final String TAG = "GoStoneData";
     final int SQUARE_WIDTH = 57; //マスの正方形の幅
     public Coordinate[][] coordinates = new Coordinate[19][19];
 
-    public GoStoneCoordinateData() {
+    public GoStoneData() {
         coordinate();
         coordinates[0][0].X = 20;
         coordinates[0][0].Y = 530;

@@ -3,7 +3,7 @@ package com.example.games.gomokuData;
 public class GomokuJudge {
 
 
-    public GoStoneAryIndex Nearbycoordinates(int x, int y, GoStoneCoordinateData.Coordinate[][] coordinates) {
+    public  GoStoneAryIndex Nearbycoordinates(int x, int y, GoStoneData.Coordinate[][] coordinates) {
         double min = Math.sqrt((coordinates[0][0].X - x) * (coordinates[0][0].X - x) + (coordinates[0][0].Y - y) * (coordinates[0][0].Y - y));
         GoStoneAryIndex goStoneAryIndex = new GoStoneAryIndex(0, 0);
         for (int i = 0; i < coordinates.length; i++) {
@@ -18,13 +18,20 @@ public class GomokuJudge {
         return goStoneAryIndex;
     }
 
-    public class GoStoneAryIndex {
+    public static class GoStoneAryIndex {
         final int i;
         final int j;
 
         public GoStoneAryIndex(final int i, final int j) {
             this.i = i;
             this.j = j;
+        }
+
+        public int getI(){
+            return i;
+        }
+        public int getJ(){
+            return j;
         }
     }
 
