@@ -5,7 +5,7 @@ public class GomokuJudge {
 
     public  GoStoneAryIndex Nearbycoordinates(int x, int y, GoStoneData.Coordinate[][] coordinates) {
         double min = Math.sqrt((coordinates[0][0].X - x) * (coordinates[0][0].X - x) + (coordinates[0][0].Y - y) * (coordinates[0][0].Y - y));
-        GoStoneAryIndex goStoneAryIndex;
+        GoStoneAryIndex goStoneAryIndex = new GoStoneAryIndex(0,0);
         for (int i = 0; i < coordinates.length; i++) {
             for (int j = 0; j < coordinates[i].length; j++) {
                 double IsItSmallerThanMin = Math.sqrt((coordinates[i][j].X - x) * (coordinates[i][j].X - x) + (coordinates[i][j].Y - y) * (coordinates[i][j].Y - y));
@@ -17,7 +17,6 @@ public class GomokuJudge {
         }
 
         // Adjusting coordinates
-        goStoneAryIndex.i
         return goStoneAryIndex;
     }
 
