@@ -25,6 +25,7 @@ public class GomokuActivity extends AppCompatActivity {
         goStoneData =new GoStoneData();
         customView = findViewById(R.id.customView);
 
+        // Home button click processing
         findViewById(R.id.home).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
         });
@@ -32,7 +33,7 @@ public class GomokuActivity extends AppCompatActivity {
 
     public boolean onTouchEvent(MotionEvent event) {
         //TextViewに表示
-        coordinate.setText("座標X:"+String.valueOf(event.getX())+" 座標Y:"+String.valueOf(event.getY()));
+        coordinate.setText("座標X:"+ event.getX() +" 座標Y:"+ event.getY());
         goStoneData.printCoordinate();
         GomokuJudge.GoStoneAryIndex goStoneAryIndex = gomokuJudge.Nearbycoordinates((int)event.getX(),(int)event.getY(),goStoneData.coordinates);
         customView.setGoStoneAryIndex(goStoneAryIndex);
