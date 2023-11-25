@@ -17,6 +17,7 @@ public class GomokuJudge {
         }
 
         // Adjusting coordinates
+        a
         return goStoneAryIndex;
     }
 
