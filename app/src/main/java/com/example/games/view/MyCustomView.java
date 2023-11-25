@@ -1,5 +1,7 @@
 package com.example.games.view;
 
+import static com.example.games.gomokuData.GomokuJudge.*;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,7 +17,7 @@ public class MyCustomView extends View {
     final String TAG = "MyCustomView";
 
     GoStoneData goStoneData;
-    GomokuJudge.GoStoneAryIndex goStoneAryIndex;
+    String[][] whereTSheGoStonesArePlaced = new String[19][19];
 
 
     public void debug(String msg) {
@@ -40,20 +42,23 @@ public class MyCustomView extends View {
     void paintTest(Canvas canvas) {
         Paint paint = new Paint();
         paint.setColor(Color.BLACK);
-        if (goStoneAryIndex != null) {
-            canvas.drawCircle(goStoneData.coordinates[goStoneAryIndex.getI()][goStoneAryIndex.getJ()].X, goStoneData.coordinates[goStoneAryIndex.getI()][goStoneAryIndex.getJ()].Y, 25, paint);
-            debug("X:"+goStoneData.coordinates[0][0].X+" Y:"+goStoneData.coordinates[0][0].Y);
+
+        //描画処理
+        for (int i = 0; i < whereTSheGoStonesArePlaced.length; i++) {
+            for (int j = 0; j < whereTSheGoStonesArePlaced[i].length; j++) {
+                if(whereTSheGoStonesArePlaced[i][j]==null)continue;
+                if(whereTSheGoStonesArePlaced[i][j].equals("黒")){
+                    paint.setColor(Color.BLACK);
+                }else {
+                    paint.setColor(Color.WHITE);
+                }
+                canvas.drawCircle(goStoneData.coordinates[i][j].X, goStoneData.coordinates[i][j].Y, 25, paint);
+            }
         }
-//        for (int i = 0; i < goStoneData.coordinates.length; i++) {
-//            for (int j = 0; j < goStoneData.coordinates[i].length; j++) {
-//                canvas.drawCircle(goStoneData.coordinates[i][j].X, goStoneData.coordinates[i][j].Y,25,paint);
-//            }
-//        }
-//        canvas.drawCircle(goStoneCoordinateData.coordinates[0][0].X, goStoneCoordinateData.coordinates[0][0].Y, 25, paint);
     }
 
-    public void setGoStoneAryIndex(GomokuJudge.GoStoneAryIndex goStoneAryIndex) {
-        this.goStoneAryIndex = goStoneAryIndex;
-
+    public void setWhereTSheGoStonesArePlaced(String[][] whereTSheGoStonesArePlaced) {
+        this.whereTSheGoStonesArePlaced = whereTSheGoStonesArePlaced;
     }
+
 }

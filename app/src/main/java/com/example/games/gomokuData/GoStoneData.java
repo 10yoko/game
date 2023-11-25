@@ -2,10 +2,22 @@ package com.example.games.gomokuData;
 
 import android.util.Log;
 
+import com.example.games.gomokuData.GomokuJudge.GoStoneAryIndex;
+
 public class GoStoneData {
     final String TAG = "GoStoneData";
     final int SQUARE_WIDTH = 57; //マスの正方形の幅
+    // 各碁石が配置できる座標を所持
     public Coordinate[][] coordinates = new Coordinate[19][19];
+    //　碁石が置かれている場所を所持
+    String[][]  whereTSheGoStonesArePlaced = new String[19][19];
+
+    public void setGoStoneAtTheSpecifiedLocation(GoStoneAryIndex goStoneAryIndex){
+        int i=goStoneAryIndex.getI();
+        int j= goStoneAryIndex.getJ();
+        String colorGoStone = goStoneAryIndex.getGoStoneColor();
+        whereTSheGoStonesArePlaced[i][j]=colorGoStone;
+    }
 
     public GoStoneData() {
         coordinate();
@@ -27,6 +39,7 @@ public class GoStoneData {
         public int Y;
     }
 
+
     void coordinate() {
         for (int i = 0; i < coordinates.length; i++) {
             for (int j = 0; j < coordinates[i].length; j++) {
@@ -41,6 +54,9 @@ public class GoStoneData {
                 debug("X:" + coordinates[i][j].X + " Y:" + coordinates[i][j].Y);
             }
         }
+    }
+    public String[][] getWhereTSheGoStonesArePlaced(){
+        return whereTSheGoStonesArePlaced;
     }
 
     public void debug(String msg) {

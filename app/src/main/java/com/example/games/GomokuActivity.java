@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.games.gomokuData.GoStoneData;
 import com.example.games.gomokuData.GomokuJudge;
+import com.example.games.gomokuData.GomokuJudge.GoStoneAryIndex;
 import com.example.games.view.MyCustomView;
 
 public class GomokuActivity extends AppCompatActivity {
@@ -29,14 +30,15 @@ public class GomokuActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         });
     }
-
     public boolean onTouchEvent(MotionEvent event) {
-        //TextViewに表示
-        coordinate.setText("座標X:"+String.valueOf(event.getX())+" 座標Y:"+String.valueOf(event.getY()));
+        if(event.getAction() != MotionEvent.ACTION_DOWN)return false;
+        coordinate.setText("座標X:"+ event.getX() +" 座標Y:"+ event.getY());
         goStoneData.printCoordinate();
-        GomokuJudge.GoStoneAryIndex goStoneAryIndex = gomokuJudge.Nearbycoordinates((int)event.getX(),(int)event.getY(),goStoneData.coordinates);
-        customView.setGoStoneAryIndex(goStoneAryIndex);
+        GoStoneAryIndex goStoneAryIndex = gomokuJudge.Nearbycoordinates((int)event.getX(),(int)event.getY(),goStoneData.coordinates);
+        goStoneData.setGoStoneAtTheSpecifiedLocation(goStoneAryIndex);
+        customView.setWhereTSheGoStonesArePlaced(goStoneData.getWhereTSheGoStonesArePlaced());
         customView.invalidate();
+        gomokuJudge.nextTarn();//ターンを移すタイミングは気を付ける事。ターンがずれたりする場合がある為
         return true;
     }
 }
