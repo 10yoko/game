@@ -15,7 +15,7 @@ public class GomokuJudge {
                 }
             }
         }
-aa
+
         // Adjusting coordinates
         return goStoneAryIndex;
     }
